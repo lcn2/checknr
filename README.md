@@ -6,15 +6,15 @@ involving mismatched opening and closing delimiters and unknown commands.
 
 # To install 
 
-1. make clobber
-2. make all
-3. make test
+0. make clobber all
 
-If all is well:
+If `checknr` compiles successfully, then:
 
-4. make install
+1. make test
 
-NOTE: You may have to be root to install.
+If the _all is well_ with the test:
+
+2. sudo make install
 
 
 # To use

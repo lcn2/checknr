@@ -237,6 +237,7 @@ extern_all: extern_include extern_objs extern_liba extern_man
 
 test: checknr checknr.1
 	./checknr -c.Ar.Bd.Bl.Bx.Dd.Dt.Ed.El.Fl.It.Nd.Nm.Op.Os.Pp.Ql.Sh.Sq.Xr checknr.1
+	@echo all is well
 
 check_man: test
 
