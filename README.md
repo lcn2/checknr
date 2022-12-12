@@ -66,5 +66,6 @@ Later on, this line was added by the folks from FreeBSD:
 
 ```
 $FreeBSD: src/usr.bin/checknr/checknr.c,v 1.9 2004/07/15 04:42:47 tjr Exp
+```
 
 The program had to be modified slightly from the FreeBSD version, to make it easier for other systems to compile.  See the file [checknr.orig.c](https://github.com/lcn2/checknr/blob/master/checknr.orig.c) for the original source code.
