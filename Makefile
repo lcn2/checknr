@@ -80,8 +80,8 @@ C_OPT= -O3 -g3
 
 # Compiler warnings
 #
-WARN_FLAGS= -pedantic -Wall -Wextra
-#WARN_FLAGS= -pedantic -Wall -Wextra -Werror
+WARN_FLAGS= -pedantic -Wall -Wextra -Wno-unused-const-variable
+#WARN_FLAGS= -pedantic -Wall -Wextra -Werror -Wno-unused-const-variable
 
 # linker options
 #
