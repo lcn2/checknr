@@ -1,4 +1,4 @@
-#!/usr/bin/make
+#!/usr/bin/env make
 #
 # checknr - check nroff/troff files
 #
