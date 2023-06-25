@@ -63,6 +63,9 @@ static const char __rcsid[] = "$FreeBSD: src/usr.bin/checknr/checknr.c,v 1.9 200
 #define MAXBR	100	/* Max number of bracket pairs known */
 #define MAXCMDS	500	/* Max number of commands known */
 
+/* added by @xexyl 24 June 2023 for non-zero exit codes when a problem is found */
+static unsigned long int issues_found = 0;
+
 void addcmd(char *);
 void addmac(const char *);
 int binsrch(const char *);
@@ -268,7 +271,7 @@ main(int argc, char **argv)
 		cfilename = "stdin";
 		process(stdin);
 	}
-	exit(0);
+	exit(issues_found?2:0);
 }
 
 static void
@@ -304,6 +307,7 @@ process(FILE *f)
 			} else if (mac[0] != '\\' || mac[1] != '\"') {
 				pe(lineno);
 				printf("Command too long\n");
+				++issues_found;
 			}
 
 			/*
@@ -342,6 +346,7 @@ process(FILE *f)
 						} else {
 							pe(lineno);
 							printf("unmatched \\s0\n");
+							++issues_found;
 						}
 					} else {
 						stk[++stktop].opno = SZ;
@@ -357,6 +362,7 @@ process(FILE *f)
 						} else {
 							pe(lineno);
 							printf("unmatched \\fP\n");
+							++issues_found;
 						}
 					} else {
 						stk[++stktop].opno = FT;
@@ -383,6 +389,7 @@ complain(int i)
 	printf("Unmatched ");
 	prop(i);
 	printf("\n");
+	++issues_found;
 }
 
 void
@@ -400,6 +407,7 @@ prop(int i)
 	default:
 		printf("Bug: stk[%d].opno = %d = .%s, .%s",
 			i, stk[i].opno, br[stk[i].opno].opbr, br[stk[i].opno].clbr);
+		break;
 	}
 }
 
@@ -473,6 +481,7 @@ nomatch(const char *mac)
 				printf(" does not match %d: ", stk[j+2].lno);
 				prop(j+2);
 				printf("\n");
+				++issues_found;
 			} else for (i=j+1; i <= stktop; i++) {
 				complain(i);
 			}
@@ -482,6 +491,7 @@ nomatch(const char *mac)
 	/* Didn't find one.  Throw this away. */
 	pe(lineno);
 	printf("Unmatched .%s\n", mac);
+	++issues_found;
 }
 
 /* eq: are two strings equal? */
@@ -513,6 +523,7 @@ checkknown(const char *mac)
 
 	pe(lineno);
 	printf("Unknown command: .%s\n", mac);
+	++issues_found;
 }
 
 /*
