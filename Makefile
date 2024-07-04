@@ -259,12 +259,12 @@ clobber: clean
 	${RM} -f tags
 
 install: all
-#none#	${INSTALL} -v -d -m 0775 ${DEST_LIB}
-	${INSTALL} -v -d -m 0775 ${DEST_DIR}
-	${INSTALL} -v -d -m 0775 ${MAN1_DIR}
-#none#	${INSTALL} -v -d -m 0775 ${MAN3_DIR}
-#none#	${INSTALL} -v -d -m 0775 ${MAN8_DIR}
-#none#	${INSTALL} -v -d -m 0775 ${DEST_INCLUDE}
+#none#	${INSTALL} -v -d ${DEST_LIB}
+	${INSTALL} -v -d ${DEST_DIR}
+	${INSTALL} -v -d ${MAN1_DIR}
+#none#	${INSTALL} -v -d ${MAN3_DIR}
+#none#	${INSTALL} -v -d ${MAN8_DIR}
+#none#	${INSTALL} -v -d ${DEST_INCLUDE}
 	${INSTALL} -v -m 0444 ${MAN1_TARGETS} ${MAN1_DIR}
 #none#	${INSTALL} -v -m 0444 ${MAN3_TARGETS} ${MAN3_DIR}
 #none#	${INSTALL} -v -m 0444 ${MAN8_TARGETS} ${MAN8_DIR}
