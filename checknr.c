@@ -294,11 +294,12 @@ process(FILE *f)
 	memset(line, 0, sizeof line);	/* more paranoia */
 	stktop = -1;
 	for (lineno = 1; fgets(line, sizeof line, f); lineno++) {
+		line[BUFSIZ+1] = '\0';	/* paranoia */
 		if (line[0] == '.') {
 			/*
 			 * find and isolate the macro/command name.
 			 */
-			strncpy(mac, line+1, 4);
+			strcpy(mac, line+1);
 			if (isspace(mac[0])) {
 				pe(lineno);
 				printf("Empty command\n");
