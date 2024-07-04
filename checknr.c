@@ -286,10 +286,12 @@ void
 process(FILE *f)
 {
 	int i, n;
-	char mac[5];	/* The current macro or nroff command */
+	char mac[BUFSIZ+1+1+1];	/* The current macro or nroff command - size of line + paranoia */
 	int pl;
-	static char line[256];	/* the current line */
+	static char line[BUFSIZ+1+1];	/* the current line + NUL + paranoia */
 
+	memset(mac, 0, sizeof mac);	/* more paranoia */
+	memset(line, 0, sizeof line);	/* more paranoia */
 	stktop = -1;
 	for (lineno = 1; fgets(line, sizeof line, f); lineno++) {
 		if (line[0] == '.') {
