@@ -1,10 +1,10 @@
 # checknr — check nroff/troff files
 
-The checknr utility checks a list of nroff(1) or troff(1) input files for certain kinds of errors 
+The checknr utility checks a list of nroff(1) or troff(1) input files for certain kinds of errors
 involving mismatched opening and closing delimiters and unknown commands.
 
 
-# To install 
+# To install
 
 0. make clobber all
 
@@ -69,3 +69,8 @@ $FreeBSD: src/usr.bin/checknr/checknr.c,v 1.9 2004/07/15 04:42:47 tjr Exp
 ```
 
 The program had to be modified slightly from the FreeBSD version, to make it easier for other systems to compile.  See the file [checknr.orig.c](https://github.com/lcn2/checknr/blob/master/checknr.orig.c) for the original source code.
+
+
+# Reporting Security Issues
+
+To report a security issue, please visit "[Reporting Security Issues](https://github.com/lcn1/checknr/security/policy)".
