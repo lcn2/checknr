@@ -73,4 +73,4 @@ The program had to be modified slightly from the FreeBSD version, to make it eas
 
 # Reporting Security Issues
 
-To report a security issue, please visit "[Reporting Security Issues](https://github.com/lcn1/checknr/security/policy)".
+To report a security issue, please visit "[Reporting Security Issues](https://github.com/lcn2/checknr/security/policy)".
