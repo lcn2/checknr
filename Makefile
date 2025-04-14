@@ -136,12 +136,13 @@ ALL_OBJS= ${LIB_OBJS} ${OTHER_OBJS}
 
 # where to install
 #
-MAN1_DIR= /usr/local/share/man/man1
-MAN3_DIR= /usr/local/share/man/man3
-MAN8_DIR= /usr/local/share/man/man8
-DEST_INCLUDE= /usr/local/include
-DEST_LIB= /usr/local/lib
-DEST_DIR= /usr/local/bin
+PREFIX= /usr/local
+MAN1_DIR= ${PREFIX}/share/man/man1
+MAN3_DIR= ${PREFIX}/share/man/man3
+MAN8_DIR= ${PREFIX}/share/man/man8
+DEST_INCLUDE= ${PREFIX}/include
+DEST_LIB= ${PREFIX}/lib
+DEST_DIR= ${PREFIX}/bin
 
 
 #################################
